@@ -1,15 +1,6 @@
-import Client from './structure/DiscordClient'
+import client from './client'
+import { config } from 'dotenv'
 
-class App {
-    client: Client
+config()
 
-    constructor() {
-        this.client = new Client()
-        
-        this.client.startHandlers()
-        this.client.loginBot(this.client)
-    }
-    
-}
-
-new App()
+client.start(process.env.TOKEN)
